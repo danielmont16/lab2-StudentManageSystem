@@ -4,6 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.util.Objects;
 
 public class StudentController {
     @FXML
@@ -24,9 +27,22 @@ public class StudentController {
 
     @FXML
     protected void onClickAddStudent() {
-     String student_id = idField.getText();
-     String student_name = nameField.getText();
-     String student_major= majorField.getText();
+
+        String student_id = idField.getText();
+        String student_name = nameField.getText();
+        String student_major = majorField.getText();
+
+
+    try {
+        if (student_id.isEmpty() || student_name.isEmpty() || student_major.isEmpty()) {
+            throw new java.lang.Exception("empty Field");
+        }
+
+    } catch (Exception error) {
+        throw new RuntimeException(error);
+
+    }
+
 
      Student newStudent = new Student(student_id, student_name, student_major);
      studentList.add(newStudent);

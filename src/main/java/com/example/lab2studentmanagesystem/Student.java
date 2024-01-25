@@ -8,6 +8,7 @@ public class Student {
     private StringProperty name;
     private StringProperty major;
 
+
     public Student(String id, String name, String major) {
         this.id= new SimpleStringProperty(id);
         this.name = new SimpleStringProperty(name);
